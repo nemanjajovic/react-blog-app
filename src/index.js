@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 import { fetchUsers } from "./features/users/usersSlice";
@@ -14,7 +14,9 @@ root.render(
   // <React.StrictMode>
   <Provider store={store}>
     <Router>
-      <App />
+      <Routes>
+        <Route path="/*" element={<App />} />
+      </Routes>
     </Router>
   </Provider>
   // </React.StrictMode>
