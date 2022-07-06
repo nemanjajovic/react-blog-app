@@ -1,14 +1,15 @@
 import { useSelector } from "react-redux";
 import { selectPostById } from "./postsSlice";
+import { useParams } from "react-router-dom";
 
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
 
 const SingePostPage = () => {
-  //retrieve postId
+  const { postId } = useParams();
 
-  const post = useSelector((state) => selectPostById(state, postId));
+  const post = useSelector((state) => selectPostById(state, Number(postId)));
 
   if (!post) {
     return (
